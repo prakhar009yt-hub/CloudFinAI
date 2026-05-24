@@ -1,0 +1,6 @@
+{
+  "name": "Cloud Cost Optimizer",
+  "description": "AI agent for monitoring and optimizing cloud infrastructure costs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

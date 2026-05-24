@@ -1,0 +1,45 @@
+export const infrastructureData = {
+  totalSpendLimit: 50000,
+  currentMonthSpend: 42350,
+  projectedMonthSpend: 48900,
+  lastMonthSpend: 46200,
+  resources: {
+    totalInstances: 142,
+    idleInstances: 24,
+    underutilizedInstances: 38,
+    unattachedVolumes: 15,
+    oldSnapshots: 120,
+    activeDatabases: 12,
+    idleDatabases: 2,
+  },
+  servicesBreakdown: [
+    { name: "Compute Engine", cost: 21500, percentage: 51 },
+    { name: "Cloud SQL", cost: 9800, percentage: 23 },
+    { name: "Cloud Storage", cost: 5200, percentage: 12 },
+    { name: "Networking", cost: 3100, percentage: 7 },
+    { name: "Other", cost: 2750, percentage: 7 },
+  ],
+  environmentsBreakdown: [
+    { name: "Production", cost: 31000 },
+    { name: "Staging", cost: 7500 },
+    { name: "Development", cost: 3850 },
+  ],
+  dailyCostHistory: Array.from({ length: 30 }, (_, i) => ({
+    date: new Date(new Date().setDate(new Date().getDate() - (29 - i))).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+    Compute: Math.floor(600 + Math.random() * 200),
+    Database: Math.floor(300 + Math.random() * 100),
+    Storage: Math.floor(150 + Math.random() * 50),
+    Network: Math.floor(90 + Math.random() * 30),
+  })).map(item => ({
+    ...item,
+    Total: item.Compute + item.Database + item.Storage + item.Network,
+  })),
+  cumulativeSavings: [
+    { month: 'Dec', baseline: 45000, actual: 44000, savings: 1000, cumulative: 1000 },
+    { month: 'Jan', baseline: 47000, actual: 44500, savings: 2500, cumulative: 3500 },
+    { month: 'Feb', baseline: 49000, actual: 43000, savings: 6000, cumulative: 9500 },
+    { month: 'Mar', baseline: 52000, actual: 41500, savings: 10500, cumulative: 20000 },
+    { month: 'Apr', baseline: 55000, actual: 42000, savings: 13000, cumulative: 33000 },
+    { month: 'May', baseline: 58000, actual: 42350, savings: 15650, cumulative: 48650 },
+  ],
+};
