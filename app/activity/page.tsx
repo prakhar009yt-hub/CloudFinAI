@@ -1,6 +1,11 @@
+'use client';
+
 import { Activity, Bot } from 'lucide-react';
+import { useToast } from '@/components/ToastProvider';
 
 export default function ActivityPage() {
+  const { addToast } = useToast();
+  
   return (
     <div className="py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
@@ -15,7 +20,10 @@ export default function ActivityPage() {
           <p className="mt-2 text-sm text-white/40 max-w-sm mx-auto">
             No recent autonomous actions have been executed in the past 24 hours.
           </p>
-          <button className="mt-6 px-4 py-2 bg-[#00FFC2]/10 border border-[#00FFC2]/20 text-[10px] uppercase font-bold text-[#00FFC2] rounded-sm hover:bg-[#00FFC2]/20 transition-colors flex items-center">
+          <button 
+            onClick={() => addToast('Fetching comprehensive logs...')}
+            className="mt-6 px-4 py-2 bg-[#00FFC2]/10 border border-[#00FFC2]/20 text-[10px] uppercase font-bold text-[#00FFC2] rounded-sm hover:bg-[#00FFC2]/20 transition-colors flex items-center"
+          >
             <Activity className="h-3 w-3 mr-2" /> View Detailed Logs
           </button>
         </div>

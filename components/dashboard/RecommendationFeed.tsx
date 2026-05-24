@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { infrastructureData } from '@/lib/mock-data';
 import { Sparkles, ArrowRight, Zap, CheckCircle2, AlertTriangle, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useToast } from '@/components/ToastProvider';
 
 type Recommendation = {
   id: string;
@@ -21,6 +22,8 @@ export function RecommendationFeed() {
   const [analyzed, setAnalyzed] = useState(false);
   const [actioned, setActioned] = useState<Set<string>>(new Set());
 
+  const { addToast } = useToast();
+
   const analyze = async () => {
     setLoading(true);
     try {
@@ -29,13 +32,20 @@ export function RecommendationFeed() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ infrastructureData }),
       });
+      
       const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to analyze data');
+      }
+      
       if (data.recommendations) {
         setRecommendations(data.recommendations);
         setAnalyzed(true);
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Failed to analyze data", error);
+      addToast(error.message || 'Failed to analyze data. Please make sure your API key is correctly configured.', 'info');
     } finally {
       setLoading(false);
     }
@@ -104,13 +114,13 @@ export function RecommendationFeed() {
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-0.5">
                       {actioned.has(rec.id) ? (
-                        <CheckCircle2 className="h-5 w-5 text-green-500" />
+                        <CheckCircle2 className="h-5 w-5 text-[#00FFC2]" />
                       ) : rec.severity === 'High' ? (
                         <AlertTriangle className="h-5 w-5 text-red-500" />
                       ) : rec.severity === 'Medium' ? (
-                        <Info className="h-5 w-5 text-amber-500" />
+                        <Info className="h-5 w-5 text-orange-400" />
                       ) : (
-                        <CheckCircle2 className="h-5 w-5 text-blue-500" />
+                        <CheckCircle2 className="h-5 w-5 text-blue-400" />
                       )}
                     </div>
                     <div className="ml-3 flex-1">

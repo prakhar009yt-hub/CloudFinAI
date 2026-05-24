@@ -27,6 +27,12 @@ export function MetricsCards() {
                 </dt>
                 <dd>
                   <div className="text-3xl font-light text-white">${currentMonthSpend.toLocaleString()}</div>
+                  {currentMonthSpend > infrastructureData.anomalyThreshold && (
+                    <div className="mt-1 flex items-center text-xs font-semibold text-red-500 uppercase tracking-widest">
+                      <AlertTriangle className="h-3 w-3 mr-1" />
+                      Anomaly Detected
+                    </div>
+                  )}
                 </dd>
               </dl>
             </div>

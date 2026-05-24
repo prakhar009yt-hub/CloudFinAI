@@ -1,6 +1,11 @@
+'use client';
+
 import { HelpCircle, Mail } from 'lucide-react';
+import { useToast } from '@/components/ToastProvider';
 
 export default function SupportPage() {
+  const { addToast } = useToast();
+  
   return (
     <div className="py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
@@ -15,7 +20,10 @@ export default function SupportPage() {
           <p className="mt-2 text-sm text-white/40 max-w-sm mx-auto">
             Our cloud architecture team is available 24/7 to assist with complex infrastructure queries.
           </p>
-          <button className="mt-6 px-4 py-2 bg-white text-black border border-transparent text-[10px] uppercase font-bold rounded-sm hover:bg-white/80 transition-colors flex items-center">
+          <button 
+            onClick={() => addToast('Opening support portal...', 'info')}
+            className="mt-6 px-4 py-2 bg-white text-black border border-transparent text-[10px] uppercase font-bold rounded-sm hover:bg-white/80 transition-colors flex items-center"
+          >
             <Mail className="h-3 w-3 mr-2" /> Contact Support
           </button>
         </div>

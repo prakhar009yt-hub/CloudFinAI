@@ -1,5 +1,6 @@
 export const infrastructureData = {
   totalSpendLimit: 50000,
+  anomalyThreshold: 40000,
   currentMonthSpend: 42350,
   projectedMonthSpend: 48900,
   lastMonthSpend: 46200,
@@ -18,6 +19,13 @@ export const infrastructureData = {
     { name: "Cloud Storage", cost: 5200, percentage: 12 },
     { name: "Networking", cost: 3100, percentage: 7 },
     { name: "Other", cost: 2750, percentage: 7 },
+  ],
+  previousServicesBreakdown: [
+    { name: "Compute Engine", cost: 24500, percentage: 53 },
+    { name: "Cloud SQL", cost: 11200, percentage: 24 },
+    { name: "Cloud Storage", cost: 4800, percentage: 10 },
+    { name: "Networking", cost: 2900, percentage: 6 },
+    { name: "Other", cost: 2800, percentage: 6 },
   ],
   environmentsBreakdown: [
     { name: "Production", cost: 31000 },
@@ -41,5 +49,15 @@ export const infrastructureData = {
     { month: 'Mar', baseline: 52000, actual: 41500, savings: 10500, cumulative: 20000 },
     { month: 'Apr', baseline: 55000, actual: 42000, savings: 13000, cumulative: 33000 },
     { month: 'May', baseline: 58000, actual: 42350, savings: 15650, cumulative: 48650 },
+  ],
+  resourceInstances: [
+    { id: "i-09ab8c7d6e", name: "prod-web-server-1", type: "Compute", status: "Running", costPerHour: 0.15, region: "us-east-1", utilization: 78, tags: ["prod", "web"] },
+    { id: "i-12ab8c7d6e", name: "prod-web-server-2", type: "Compute", status: "Running", costPerHour: 0.15, region: "us-east-1", utilization: 65, tags: ["prod", "web"] },
+    { id: "i-23ab8c7d6e", name: "dev-api-server", type: "Compute", status: "Running", costPerHour: 0.08, region: "us-east-1", utilization: 12, tags: ["dev", "api"] },
+    { id: "i-99xx8c7d6e", name: "test-worker-1", type: "Compute", status: "Stopped", costPerHour: 0.04, region: "us-west-2", utilization: 0, tags: ["test", "worker"] },
+    { id: "db-1b2c3d4e5", name: "main-master-db", type: "Database", status: "Running", costPerHour: 0.55, region: "us-east-1", utilization: 45, tags: ["prod", "db"] },
+    { id: "db-2b2c3d4e5", name: "analytics-replica", type: "Database", status: "Running", costPerHour: 0.55, region: "us-east-1", utilization: 8, tags: ["staging", "db"] },
+    { id: "vol-0a1b2c3d", name: "backup-vol-1", type: "Storage", status: "Unattached", costPerHour: 0.02, region: "us-east-1", utilization: 0, tags: ["backup"] },
+    { id: "redis-cluster", name: "session-cache", type: "Cache", status: "Running", costPerHour: 0.12, region: "us-east-1", utilization: 34, tags: ["prod", "cache"] },
   ],
 };

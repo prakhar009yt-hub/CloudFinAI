@@ -1,6 +1,6 @@
 'use client';
 
-import { BarChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ComposedChart, Legend } from 'recharts';
+import { Area, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ComposedChart, Legend } from 'recharts';
 import { infrastructureData } from '@/lib/mock-data';
 
 export function CumulativeSavingsChart() {
@@ -20,6 +20,12 @@ export function CumulativeSavingsChart() {
               bottom: 0,
             }}
           >
+            <defs>
+              <linearGradient id="colorCumulative" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#00FFC2" stopOpacity={0.3}/>
+                <stop offset="95%" stopColor="#00FFC2" stopOpacity={0}/>
+              </linearGradient>
+            </defs>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
             <XAxis 
               dataKey="month" 
@@ -54,7 +60,7 @@ export function CumulativeSavingsChart() {
             <Legend 
               wrapperStyle={{ fontSize: '10px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}
             />
-            <Bar yAxisId="right" dataKey="cumulative" name="Cumulative Savings" fill="#00FFC2" radius={[2, 2, 0, 0]} barSize={20} />
+            <Area yAxisId="right" type="monotone" dataKey="cumulative" name="Cumulative Savings" stroke="#00FFC2" fillOpacity={1} fill="url(#colorCumulative)" />
             <Line yAxisId="left" type="monotone" dataKey="baseline" name="Baseline Spend" stroke="#4F46E5" strokeWidth={2} dot={false} />
             <Line yAxisId="left" type="monotone" dataKey="actual" name="Actual Spend" stroke="#10B981" strokeWidth={2} dot={false} />
           </ComposedChart>

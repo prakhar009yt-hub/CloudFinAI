@@ -2,7 +2,6 @@ import { MetricsCards } from '@/components/dashboard/MetricsCards';
 import { SpendTimelineChart } from '@/components/dashboard/SpendTimelineChart';
 import { ServicesBreakdownChart } from '@/components/dashboard/ServicesBreakdownChart';
 import { RecommendationFeed } from '@/components/dashboard/RecommendationFeed';
-
 import { CumulativeSavingsChart } from '@/components/dashboard/CumulativeSavingsChart';
 
 export default function Dashboard() {
