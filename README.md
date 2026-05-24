@@ -74,5 +74,3 @@ CloudFinAI scales with your infrastructure. We offer flexible pricing tiers to m
 *Note: Pricing includes a performance fee of 1% of the actual savings realized via automated actions on the Enterprise tier.*
 
 ---
-
-**Powered by Google Gemini 2.5 Flash.**
