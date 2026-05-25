@@ -2,12 +2,13 @@
 
 CloudFinAI is an autonomous DevOps AI Agent designed to continuously monitor your cloud infrastructure, detect unnecessary costs, predict future spending, and recommend actionable optimizations like shutting down idle instances or resizing services.
 
-## Features
+## Core Features
 
-- **Continuous Infrastructure Monitoring:** Connects to AWS, GCP, and Azure to monitor resource utilization in real-time.
-- **Smart Recommendations:** Uses Gemini AI to analyze spending patterns and generate context-aware cost-saving actions with estimated savings.
-- **Autonomous Execution:** Easily "Auto-Apply" safe recommendations (like detaching unused EBS volumes or shutting down idle databases) directly from the dashboard.
-- **Spend Forecasting:** Analyzes historical data to predict your end-of-month cloud bill and alerts you if budget limits will be exceeded.
+- **Real-Time Resource Monitoring & Alerts:** Visual bar chart tracking real-time CPU, Memory, and Storage usage across active cloud services. Users can define custom alert thresholds for CPU/Memory, which trigger immediate toast notifications and visual pulsing 'red glows' on charts when exceeded.
+- **Autonomous Anomaly Resolution:** Functional metric cards that monitor spend alerts and allow 1-click execution to resolve detected anomalies (e.g., terminating idle instances). 
+- **Agent Activity Log:** An interactive, chronological history of automated optimizations, scaling events, and infrastructure changes performed by the AI agent.
+- **Smart Recommendations:** Analyzes spending patterns and generates context-aware cost-saving actions alongside long-term cumulative savings projections.
+- **Spend Forecasting:** Analyzes historical data to predict your end-of-month cloud bill relative to your budget limits.
 
 ## How to Use in Your Website
 
@@ -27,9 +28,6 @@ The simplest way to integrate the dashboard is via iframe. It supports dark mode
 
 ### Option 2: REST API Integration
 To build a custom UI or trigger the agent programmatically in your CI/CD pipelines, use our REST API.
-
-1. Obtain an API Key from the Settings panel.
-2. Call the analysis endpoint with your infrastructure payload:
 
 ```javascript
 const response = await fetch('https://your-cloudfinai-domain.com/api/analyze', {
@@ -60,6 +58,7 @@ CloudFinAI scales with your infrastructure. We offer flexible pricing tiers to m
 ### 🥈 Pro ($249/month)
 - Up to $100,000 in monthly monitored cloud spend
 - 1-click Auto-Apply optimization actions
+- Custom alert thresholds and chart polling
 - 1-hour sync intervals
 - Slack/Teams integration and alerts
 - Standard email support
@@ -67,11 +66,9 @@ CloudFinAI scales with your infrastructure. We offer flexible pricing tiers to m
 ### 🥇 Enterprise (Custom Pricing)
 - Unlimited monitored cloud spend
 - Fully autonomous optimization execution based on custom rulesets
-- Real-time sync and anomaly detection
+- Real-time sync, visual resource alerts, and anomaly detection
 - Dedicated account manager & CI/CD pipeline integrations
 - 24/7 priority support
-
-*Note: Pricing includes a performance fee of 1% of the actual savings realized via automated actions on the Enterprise tier.*
 
 ---
 
