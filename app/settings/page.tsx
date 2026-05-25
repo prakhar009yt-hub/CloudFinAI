@@ -25,8 +25,8 @@ export default function SettingsPage() {
         <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
           {/* Main Settings */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-[#090909] border border-white/5 rounded-sm p-6">
-              <div className="flex items-center space-x-3 mb-6 border-b border-white/5 pb-4">
+            <div className="bg-black/30 backdrop-blur-2xl border-white/10 border border-white/10 rounded-xl p-6">
+              <div className="flex items-center space-x-3 mb-6 border-b border-white/10 pb-4">
                 <Power className="h-5 w-5 text-[#00FFC2]" />
                 <h3 className="text-sm uppercase tracking-[0.2em] font-medium text-white">Automated Downtime Management</h3>
               </div>
@@ -40,7 +40,7 @@ export default function SettingsPage() {
                   <div className="flex items-center h-5 mt-1">
                     <button 
                       onClick={() => setAutoDowntime(!autoDowntime)}
-                      className={`relative inline-flex flex-shrink-0 h-5 w-10 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none ${autoDowntime ? 'bg-[#00FFC2]' : 'bg-[#111] border border-white/10'}`}
+                      className={`relative inline-flex flex-shrink-0 h-5 w-10 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none ${autoDowntime ? 'bg-[#00FFC2]' : 'bg-white/5 backdrop-blur-xl shadow-2xl border border-white/10'}`}
                       role="switch"
                       aria-checked={autoDowntime}
                     >
@@ -62,7 +62,7 @@ export default function SettingsPage() {
                         max="100" 
                         value={threshold} 
                         onChange={(e) => setThreshold(e.target.value)}
-                        className="w-full accent-[#00FFC2] bg-[#111] h-1 rounded-full outline-none appearance-none"
+                        className="w-full accent-[#00FFC2] bg-white/5 backdrop-blur-xl shadow-2xl h-1 rounded-full outline-none appearance-none"
                       />
                       <span className="text-sm font-mono text-white/80 w-12 text-right">{threshold}%</span>
                     </div>
@@ -75,7 +75,7 @@ export default function SettingsPage() {
                     <select 
                       value={downtimeWait}
                       onChange={(e) => setDowntimeWait(e.target.value)}
-                      className="mt-1 block w-full bg-[#111] border border-white/10 rounded-sm text-sm text-white py-2 px-3 focus:outline-none focus:border-[#00FFC2]/50 focus:ring-1 focus:ring-[#00FFC2]/50"
+                      className="mt-1 block w-full bg-white/5 backdrop-blur-xl shadow-2xl border border-white/10 rounded-xl text-sm text-white py-2 px-3 focus:outline-none focus:border-[#00FFC2]/50 focus:ring-1 focus:ring-[#00FFC2]/50"
                     >
                       <option value="5">5 Minutes</option>
                       <option value="15">15 Minutes</option>
@@ -85,10 +85,10 @@ export default function SettingsPage() {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-white/5">
+                <div className="pt-4 border-t border-white/10">
                   <button 
                     onClick={handleSave}
-                    className="px-4 py-2 bg-[#00FFC2]/10 border border-[#00FFC2]/20 text-[10px] uppercase font-bold text-[#00FFC2] rounded-sm hover:bg-[#00FFC2]/20 transition-colors"
+                    className="px-4 py-2 bg-[#00FFC2]/10 border border-[#00FFC2]/20 text-[10px] uppercase font-bold text-[#00FFC2] rounded-xl hover:bg-[#00FFC2]/20 transition-colors"
                   >
                     Save Changes
                   </button>
@@ -96,8 +96,8 @@ export default function SettingsPage() {
               </div>
             </div>
 
-            <div className="bg-[#090909] border border-white/5 rounded-sm p-6">
-              <div className="flex items-center space-x-3 mb-6 border-b border-white/5 pb-4">
+            <div className="bg-black/30 backdrop-blur-2xl border-white/10 border border-white/10 rounded-xl p-6">
+              <div className="flex items-center space-x-3 mb-6 border-b border-white/10 pb-4">
                 <Zap className="h-5 w-5 text-[#00FFC2]" />
                 <h3 className="text-sm uppercase tracking-[0.2em] font-medium text-white">Network Performance & Caching</h3>
               </div>
@@ -131,7 +131,7 @@ export default function SettingsPage() {
                     <button 
                       onClick={(e) => {
                         e.currentTarget.classList.toggle('bg-[#00FFC2]');
-                        e.currentTarget.classList.toggle('bg-[#111]');
+                        e.currentTarget.classList.toggle('bg-white/5 backdrop-blur-xl shadow-2xl');
                         e.currentTarget.classList.toggle('border');
                         e.currentTarget.classList.toggle('border-white/10');
                         const span = e.currentTarget.querySelector('span:last-child') as HTMLElement;
@@ -145,7 +145,7 @@ export default function SettingsPage() {
                           addToast('Aggressive Edge Caching disabled', 'info');
                         }
                       }}
-                      className={`relative inline-flex flex-shrink-0 h-5 w-10 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none bg-[#111] border border-white/10`}
+                      className={`relative inline-flex flex-shrink-0 h-5 w-10 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none bg-white/5 backdrop-blur-xl shadow-2xl border border-white/10`}
                       role="switch"
                       aria-checked={false}
                     >
@@ -159,7 +159,7 @@ export default function SettingsPage() {
 
           {/* Admin Elevation Panel */}
           <div className="space-y-6">
-            <div className="bg-[#090909] border border-white/5 rounded-sm p-6 text-center flex flex-col items-center">
+            <div className="bg-black/30 backdrop-blur-2xl border-white/10 border border-white/10 rounded-xl p-6 text-center flex flex-col items-center">
               <Shield className="h-12 w-12 text-[#00FFC2] mb-4 opacity-80" />
               <h3 className="text-sm uppercase tracking-[0.2em] font-medium text-white">System Privileges</h3>
               <p className="mt-2 text-sm text-white/40 text-center">
@@ -167,7 +167,7 @@ export default function SettingsPage() {
               </p>
               <button 
                 onClick={() => addToast('Elevation request sent to admin team for approval.', 'info')}
-                className="mt-6 px-4 py-2 border border-white/10 text-[10px] uppercase font-bold text-white/60 rounded-sm hover:text-white transition-colors flex items-center w-full justify-center"
+                className="mt-6 px-4 py-2 border border-white/10 text-[10px] uppercase font-bold text-white/60 rounded-xl hover:text-white transition-colors flex items-center w-full justify-center"
               >
                 Request Elevation
               </button>

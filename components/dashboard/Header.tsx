@@ -46,11 +46,11 @@ export function Header({ setSidebarOpen }: { setSidebarOpen?: (v: boolean) => vo
   ];
 
   return (
-    <header className="h-16 flex items-center justify-between bg-[#050505] border-b border-white/5 px-4 sm:px-6 lg:px-8">
+    <header className="h-16 flex items-center justify-between bg-transparent border-b border-white/10 px-4 sm:px-6 lg:px-8">
       <div className="flex-1 flex items-center">
         <button
           type="button"
-          className="mr-4 md:hidden p-1.5 -ml-1.5 rounded-sm text-white/40 hover:text-white/80 focus:outline-none focus:ring-2 focus:ring-[#00FFC2]"
+          className="mr-4 md:hidden p-1.5 -ml-1.5 rounded-xl text-white/40 hover:text-white/80 focus:outline-none focus:ring-2 focus:ring-[#00FFC2]"
           onClick={() => setSidebarOpen && setSidebarOpen(true)}
         >
           <span className="sr-only">Open sidebar</span>
@@ -76,7 +76,7 @@ export function Header({ setSidebarOpen }: { setSidebarOpen?: (v: boolean) => vo
         <div className="relative" ref={notificationRef}>
           <button
             type="button"
-            className="relative bg-transparent p-1 rounded-sm text-white/40 hover:text-white/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00FFC2] focus:ring-offset-[#050505]"
+            className="relative bg-transparent p-1 rounded-xl text-white/40 hover:text-white/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00FFC2] focus:ring-offset-[#050505]"
             onClick={() => setShowNotifications(!showNotifications)}
           >
             <span className="sr-only">View notifications</span>
@@ -91,9 +91,9 @@ export function Header({ setSidebarOpen }: { setSidebarOpen?: (v: boolean) => vo
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
-                className="absolute right-0 mt-2 w-80 sm:w-96 bg-[#111] border border-white/10 rounded-sm shadow-2xl z-50 overflow-hidden text-left"
+                className="absolute right-0 mt-2 w-80 sm:w-96 bg-white/5 backdrop-blur-xl shadow-2xl border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden text-left"
               >
-                <div className="p-4 border-b border-white/5 flex items-center justify-between">
+                <div className="p-4 border-b border-white/10 flex items-center justify-between">
                   <h3 className="text-sm font-semibold text-white tracking-tight">Notifications</h3>
                   <button 
                     onClick={() => setShowNotifications(false)}
@@ -106,7 +106,7 @@ export function Header({ setSidebarOpen }: { setSidebarOpen?: (v: boolean) => vo
                   {notifications.map((notification) => (
                     <div 
                       key={notification.id} 
-                      className="p-4 border-b border-white/5 hover:bg-white/5 transition-colors cursor-pointer flex gap-4 w-full"
+                      className="p-4 border-b border-white/10 hover:bg-white/5 transition-colors cursor-pointer flex gap-4 w-full"
                     >
                       <div className="flex-shrink-0 mt-0.5">
                         {notification.type === 'alert' && <AlertTriangle className="h-4 w-4 text-red-400" />}
@@ -123,7 +123,7 @@ export function Header({ setSidebarOpen }: { setSidebarOpen?: (v: boolean) => vo
                     </div>
                   ))}
                 </div>
-                <div className="p-3 border-t border-white/5 text-center bg-white/5">
+                <div className="p-3 border-t border-white/10 text-center bg-white/5">
                   <button className="text-[10px] uppercase tracking-widest font-bold text-[#00FFC2] hover:text-[#00FFC2]/80 transition-colors">
                     Mark all as read
                   </button>
@@ -142,9 +142,9 @@ export function Header({ setSidebarOpen }: { setSidebarOpen?: (v: boolean) => vo
               <LogOut className="h-3.5 w-3.5 mr-1" />
               Sign Out
             </button>
-            <div className="max-w-xs bg-transparent rounded-sm flex items-center text-sm p-1 border border-white/10">
+            <div className="max-w-xs bg-transparent rounded-xl flex items-center text-sm p-1 border border-white/10">
               <span className="sr-only">User profile</span>
-              <div className="h-8 w-8 rounded-sm bg-[#111] overflow-hidden flex items-center justify-center relative">
+              <div className="h-8 w-8 rounded-xl bg-white/5 backdrop-blur-xl shadow-2xl overflow-hidden flex items-center justify-center relative">
                 {user.photoURL ? (
                   <Image src={user.photoURL} alt="User" fill className="object-cover" referrerPolicy="no-referrer" sizes="32px" />
                 ) : (

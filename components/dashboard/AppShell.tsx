@@ -9,7 +9,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-[#050505] overflow-hidden font-sans">
+    <div className="flex h-screen bg-transparent overflow-hidden font-sans">
       <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
       <div className="flex flex-col flex-1 w-0 overflow-hidden">
         <Header setSidebarOpen={setSidebarOpen} />

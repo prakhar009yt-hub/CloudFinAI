@@ -89,12 +89,12 @@ export function ChatAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 z-50 w-[380px] h-[550px] bg-[#090909] border border-white/10 shadow-2xl rounded-sm flex flex-col overflow-hidden"
+            className="fixed bottom-6 right-6 z-50 w-[380px] h-[550px] bg-black/30 backdrop-blur-2xl border-white/10 border border-white/10 shadow-2xl rounded-xl flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 bg-[#111] border-b border-white/5">
+            <div className="flex items-center justify-between p-4 bg-white/5 backdrop-blur-xl shadow-2xl border-b border-white/10">
               <div className="flex items-center space-x-3">
-                <div className="bg-[#00FFC2]/10 p-2 rounded-sm text-[#00FFC2]">
+                <div className="bg-[#00FFC2]/10 p-2 rounded-xl text-[#00FFC2]">
                   <Bot className="w-4 h-4" />
                 </div>
                 <div className="flex flex-col">
@@ -130,10 +130,10 @@ export function ChatAssistant() {
                       )}
                     </div>
                     <div 
-                      className={`text-sm p-3 rounded-sm ${
+                      className={`text-sm p-3 rounded-xl ${
                         message.role === 'user' 
                           ? 'bg-white/10 text-white' 
-                          : 'bg-[#111] border border-white/5 text-white/80'
+                          : 'bg-white/5 backdrop-blur-xl shadow-2xl border border-white/10 text-white/80'
                       }`}
                     >
                       {message.role === 'user' ? (
@@ -155,7 +155,7 @@ export function ChatAssistant() {
                           <Bot className="w-3.5 h-3.5 text-[#00FFC2]" />
                         </div>
                      </div>
-                     <div className="text-sm p-4 rounded-sm bg-[#111] border border-white/5 text-white/80 flex space-x-1 items-center h-[44px]">
+                     <div className="text-sm p-4 rounded-xl bg-white/5 backdrop-blur-xl shadow-2xl border border-white/10 text-white/80 flex space-x-1 items-center h-[44px]">
                         <div className="w-1.5 h-1.5 bg-[#00FFC2]/50 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                         <div className="w-1.5 h-1.5 bg-[#00FFC2]/50 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                         <div className="w-1.5 h-1.5 bg-[#00FFC2]/50 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
@@ -167,20 +167,20 @@ export function ChatAssistant() {
             </div>
 
             {/* Input Area */}
-            <div className="p-3 bg-[#111] border-t border-white/5 relative z-10">
+            <div className="p-3 bg-white/5 backdrop-blur-xl shadow-2xl border-t border-white/10 relative z-10">
               <form onSubmit={handleSubmit} className="flex relative">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask about your infrastructure costs..."
-                  className="w-full bg-[#090909] text-sm text-white placeholder-white/40 border border-white/10 rounded-sm py-3 pl-4 pr-12 focus:outline-none focus:border-[#00FFC2]/50 focus:ring-1 focus:ring-[#00FFC2]/50 transition-all"
+                  className="w-full bg-black/30 backdrop-blur-2xl border-white/10 text-sm text-white placeholder-white/40 border border-white/10 rounded-xl py-3 pl-4 pr-12 focus:outline-none focus:border-[#00FFC2]/50 focus:ring-1 focus:ring-[#00FFC2]/50 transition-all"
                   disabled={isLoading}
                 />
                 <button
                   type="submit"
                   disabled={!input.trim() || isLoading}
-                  className="absolute right-2 top-2 bottom-2 aspect-square flex items-center justify-center bg-[#00FFC2]/10 text-[#00FFC2] rounded-sm hover:bg-[#00FFC2]/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="absolute right-2 top-2 bottom-2 aspect-square flex items-center justify-center bg-[#00FFC2]/10 text-[#00FFC2] rounded-xl hover:bg-[#00FFC2]/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   <Send className="w-4 h-4" />
                 </button>

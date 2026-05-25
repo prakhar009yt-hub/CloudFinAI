@@ -49,10 +49,10 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className={`flex items-center min-w-[300px] p-4 rounded-sm border shadow-xl ${
+              className={`flex items-center min-w-[300px] p-4 rounded-xl border shadow-xl ${
                 toast.type === 'success' 
                   ? 'bg-[#0d0d0d] border-[#00FFC2]/20 text-[#00FFC2]' 
-                  : 'bg-[#111] border-white/10 text-white'
+                  : 'bg-white/5 backdrop-blur-xl shadow-2xl border-white/10 text-white'
               }`}
             >
               {toast.type === 'success' ? (

@@ -7,7 +7,7 @@ export function CumulativeSavingsChart() {
   const data = infrastructureData.cumulativeSavings;
 
   return (
-    <div className="bg-[#090909] rounded-sm border border-white/5 p-6 h-full flex flex-col">
+    <div className="bg-black/30 backdrop-blur-2xl border-white/10 rounded-xl border border-white/10 p-6 h-full flex flex-col">
       <h3 className="text-sm uppercase tracking-[0.2em] font-medium text-white mb-4">6-Month Cumulative Savings</h3>
       <div className="flex-1 w-full min-h-[300px]">
         <ResponsiveContainer width="100%" height="100%">

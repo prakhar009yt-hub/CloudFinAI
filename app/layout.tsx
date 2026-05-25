@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased bg-[#050505] text-[#e0e0e0] font-sans" suppressHydrationWarning>
+      <body className="antialiased bg-transparent text-[#e0e0e0] font-sans" suppressHydrationWarning>
         <AuthProvider>
           <ToastProvider>
             <AppShell>{children}</AppShell>

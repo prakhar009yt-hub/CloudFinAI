@@ -52,7 +52,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   if (loading) {
     return (
-      <div className="flex h-screen bg-[#050505] items-center justify-center font-sans">
+      <div className="flex h-screen bg-transparent items-center justify-center font-sans">
         <div className="flex items-center space-x-3 text-white/50">
           <Bot className="w-8 h-8 animate-pulse text-[#00FFC2]" />
           <span className="text-xl tracking-widest uppercase text-xs font-semibold">Authenticating...</span>
@@ -63,8 +63,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   if (!user) {
     return (
-      <div className="flex h-screen bg-[#050505] items-center justify-center font-sans p-4">
-        <div className="max-w-md w-full bg-[#090909] border border-white/10 rounded-sm p-8 text-center shadow-2xl">
+      <div className="flex h-screen bg-transparent items-center justify-center font-sans p-4">
+        <div className="max-w-md w-full bg-black/30 backdrop-blur-2xl border-white/10 border border-white/10 rounded-xl p-8 text-center shadow-2xl">
           <div className="flex justify-center mb-6">
             <Bot className="w-12 h-12 text-[#00FFC2]" />
           </div>
@@ -72,7 +72,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           <p className="text-white/50 mb-8 text-sm">Please sign in to view your dashboard, analytics, and manage agents.</p>
           <button
             onClick={signInWithGoogle}
-            className="w-full flex justify-center items-center px-4 py-3 border border-transparent text-sm font-medium rounded-sm text-[#050505] bg-[#00FFC2] hover:bg-[#00FFC2]/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00FFC2] focus:ring-offset-[#050505] transition-colors"
+            className="w-full flex justify-center items-center px-4 py-3 border border-transparent text-sm font-medium rounded-xl text-[#050505] bg-[#00FFC2] hover:bg-[#00FFC2]/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00FFC2] focus:ring-offset-[#050505] transition-colors"
           >
             <LogIn className="w-5 h-5 mr-3" />
             Sign in with Google
@@ -89,8 +89,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Once authenticated, we require email verification
   if (user && !user.emailVerified) {
     return (
-      <div className="flex h-screen bg-[#050505] items-center justify-center font-sans p-4">
-        <div className="max-w-md w-full bg-[#090909] border border-white/10 rounded-sm p-8 text-center shadow-2xl">
+      <div className="flex h-screen bg-transparent items-center justify-center font-sans p-4">
+        <div className="max-w-md w-full bg-black/30 backdrop-blur-2xl border-white/10 border border-white/10 rounded-xl p-8 text-center shadow-2xl">
           <div className="flex justify-center mb-6">
             <Bot className="w-12 h-12 text-yellow-400" />
           </div>
@@ -100,7 +100,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           </p>
           <button
             onClick={signOut}
-            className="w-full flex justify-center items-center px-4 py-3 border border-white/10 text-sm font-medium rounded-sm text-white hover:bg-white/5 focus:outline-none transition-colors"
+            className="w-full flex justify-center items-center px-4 py-3 border border-white/10 text-sm font-medium rounded-xl text-white hover:bg-white/5 focus:outline-none transition-colors"
           >
             Sign Out
           </button>

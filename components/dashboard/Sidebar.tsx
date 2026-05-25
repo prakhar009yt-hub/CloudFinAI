@@ -23,7 +23,7 @@ export function Sidebar({ isOpen, setIsOpen }: { isOpen?: boolean; setIsOpen?: (
 
   const SidebarContent = (
     <>
-      <div className="flex items-center justify-between h-16 border-b border-white/5 px-4 shrink-0">
+      <div className="flex items-center justify-between h-16 border-b border-white/10 px-4 shrink-0">
         <div className="flex items-center">
           <Bot className="w-6 h-6 text-[#00FFC2] mr-2" />
           <span className="text-lg font-semibold text-white tracking-tight">CloudFinAI</span>
@@ -45,7 +45,7 @@ export function Sidebar({ isOpen, setIsOpen }: { isOpen?: boolean; setIsOpen?: (
                 key={item.name}
                 href={item.href}
                 prefetch={true}
-                className={`group flex items-center px-3 py-2 text-sm font-medium rounded-sm transition-colors ${
+                className={`group flex items-center px-3 py-2 text-sm font-medium rounded-xl transition-colors ${
                   isActive
                     ? 'bg-[#00FFC2]/10 text-[#00FFC2]'
                     : 'text-white/60 hover:bg-white/5 hover:text-white'
@@ -64,12 +64,12 @@ export function Sidebar({ isOpen, setIsOpen }: { isOpen?: boolean; setIsOpen?: (
         </nav>
       </div>
       
-      <div className="p-4 border-t border-white/5 space-y-1 shrink-0">
-        <Link href="/settings" prefetch={true} className={`group flex items-center px-3 py-2 text-sm font-medium rounded-sm transition-colors ${pathname === '/settings' ? 'bg-[#00FFC2]/10 text-[#00FFC2]' : 'text-white/60 hover:bg-white/5 hover:text-white'}`}>
+      <div className="p-4 border-t border-white/10 space-y-1 shrink-0">
+        <Link href="/settings" prefetch={true} className={`group flex items-center px-3 py-2 text-sm font-medium rounded-xl transition-colors ${pathname === '/settings' ? 'bg-[#00FFC2]/10 text-[#00FFC2]' : 'text-white/60 hover:bg-white/5 hover:text-white'}`}>
           <Settings className={`flex-shrink-0 -ml-1 mr-3 h-5 w-5 ${pathname === '/settings' ? 'text-[#00FFC2]' : 'text-white/40 group-hover:text-white/80'}`} />
           Settings
         </Link>
-        <Link href="/support" prefetch={true} className={`group flex items-center px-3 py-2 text-sm font-medium rounded-sm transition-colors ${pathname === '/support' ? 'bg-[#00FFC2]/10 text-[#00FFC2]' : 'text-white/60 hover:bg-white/5 hover:text-white'}`}>
+        <Link href="/support" prefetch={true} className={`group flex items-center px-3 py-2 text-sm font-medium rounded-xl transition-colors ${pathname === '/support' ? 'bg-[#00FFC2]/10 text-[#00FFC2]' : 'text-white/60 hover:bg-white/5 hover:text-white'}`}>
           <HelpCircle className={`flex-shrink-0 -ml-1 mr-3 h-5 w-5 ${pathname === '/support' ? 'text-[#00FFC2]' : 'text-white/40 group-hover:text-white/80'}`} />
           Support
         </Link>
@@ -79,7 +79,7 @@ export function Sidebar({ isOpen, setIsOpen }: { isOpen?: boolean; setIsOpen?: (
 
   return (
     <>
-      <div className="hidden md:flex flex-col w-64 h-screen bg-[#090909] border-r border-white/5 shrink-0">
+      <div className="hidden md:flex flex-col w-64 h-screen bg-black/30 backdrop-blur-2xl border-white/10 border-r border-white/10 shrink-0">
         {SidebarContent}
       </div>
 
@@ -98,7 +98,7 @@ export function Sidebar({ isOpen, setIsOpen }: { isOpen?: boolean; setIsOpen?: (
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
-              className="fixed inset-y-0 left-0 z-50 w-64 bg-[#090909] border-r border-white/5 flex flex-col md:hidden shadow-2xl"
+              className="fixed inset-y-0 left-0 z-50 w-64 bg-black/30 backdrop-blur-2xl border-white/10 border-r border-white/10 flex flex-col md:hidden shadow-2xl"
             >
               {SidebarContent}
             </motion.div>

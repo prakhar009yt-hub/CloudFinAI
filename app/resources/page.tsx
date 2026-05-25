@@ -28,7 +28,7 @@ export default function ResourcesPage() {
           <div className="mt-4 sm:mt-0 flex space-x-3">
             <button 
               onClick={() => addToast('Resource scan initiated. This may take a few minutes.', 'info')}
-              className="px-4 py-2 border border-white/10 text-[10px] uppercase font-bold text-[#00FFC2] rounded-sm hover:bg-[#00FFC2]/10 transition-colors flex items-center bg-[#090909]"
+              className="px-4 py-2 border border-white/10 text-[10px] uppercase font-bold text-[#00FFC2] rounded-xl hover:bg-[#00FFC2]/10 transition-colors flex items-center bg-black/30 backdrop-blur-2xl border-white/10"
             >
               <RefreshCw className="h-3 w-3 mr-2" /> Force Resync
             </button>
@@ -37,27 +37,27 @@ export default function ResourcesPage() {
 
         {/* Stats Row */}
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-4">
-          <div className="bg-[#090909] border border-white/5 p-4 rounded-sm">
+          <div className="bg-black/30 backdrop-blur-2xl border-white/10 border border-white/10 p-4 rounded-xl">
             <div className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Total Instances</div>
             <div className="text-2xl font-light text-white">{infrastructureData.resources.totalInstances}</div>
           </div>
-          <div className="bg-[#090909] border border-white/5 p-4 rounded-sm">
+          <div className="bg-black/30 backdrop-blur-2xl border-white/10 border border-white/10 p-4 rounded-xl">
             <div className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Underutilized</div>
             <div className="text-2xl font-light text-yellow-500">{infrastructureData.resources.underutilizedInstances}</div>
           </div>
-          <div className="bg-[#090909] border border-white/5 p-4 rounded-sm">
+          <div className="bg-black/30 backdrop-blur-2xl border-white/10 border border-white/10 p-4 rounded-xl">
             <div className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Unattached Volumes</div>
             <div className="text-2xl font-light text-red-400">{infrastructureData.resources.unattachedVolumes}</div>
           </div>
-          <div className="bg-[#090909] border border-white/5 p-4 rounded-sm">
+          <div className="bg-black/30 backdrop-blur-2xl border-white/10 border border-white/10 p-4 rounded-xl">
             <div className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Active DBs</div>
             <div className="text-2xl font-light text-white">{infrastructureData.resources.activeDatabases}</div>
           </div>
         </div>
 
         {/* Resources Table */}
-        <div className="mt-8 bg-[#090909] border border-white/5 rounded-sm overflow-hidden">
-          <div className="p-4 border-b border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="mt-8 bg-black/30 backdrop-blur-2xl border-white/10 border border-white/10 rounded-xl overflow-hidden">
+          <div className="p-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="relative max-w-sm w-full">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Search className="h-4 w-4 text-white/40" />
@@ -67,17 +67,17 @@ export default function ResourcesPage() {
                 placeholder="Search resources..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="block w-full pl-10 pr-3 py-2 border border-white/10 rounded-sm leading-5 bg-[#111] text-white placeholder-white/40 focus:outline-none focus:ring-1 focus:ring-[#00FFC2]/50 focus:border-[#00FFC2]/50 sm:text-sm transition-colors"
+                className="block w-full pl-10 pr-3 py-2 border border-white/10 rounded-xl leading-5 bg-white/5 backdrop-blur-xl shadow-2xl text-white placeholder-white/40 focus:outline-none focus:ring-1 focus:ring-[#00FFC2]/50 focus:border-[#00FFC2]/50 sm:text-sm transition-colors"
               />
             </div>
-            <button className="px-4 py-2 border border-white/10 text-[10px] uppercase font-bold text-white/60 rounded-sm hover:text-white transition-colors bg-[#111] flex items-center self-start sm:self-auto">
+            <button className="px-4 py-2 border border-white/10 text-[10px] uppercase font-bold text-white/60 rounded-xl hover:text-white transition-colors bg-white/5 backdrop-blur-xl shadow-2xl flex items-center self-start sm:self-auto">
               <Filter className="h-3 w-3 mr-2" /> Filter
             </button>
           </div>
           
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-white/5">
-              <thead className="bg-[#111]">
+              <thead className="bg-white/5 backdrop-blur-xl shadow-2xl">
                 <tr>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-white/40 uppercase tracking-wider">Resource</th>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-white/40 uppercase tracking-wider">Type / Region</th>
@@ -89,12 +89,12 @@ export default function ResourcesPage() {
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-[#090909] divide-y divide-white/5">
+              <tbody className="bg-black/30 backdrop-blur-2xl border-white/10 divide-y divide-white/5">
                 {filteredResources.map((resource) => (
                   <tr key={resource.id} className="hover:bg-white/[0.02] transition-colors">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        <div className="flex-shrink-0 h-8 w-8 bg-[#111] border border-white/10 rounded-sm flex items-center justify-center">
+                        <div className="flex-shrink-0 h-8 w-8 bg-white/5 backdrop-blur-xl shadow-2xl border border-white/10 rounded-xl flex items-center justify-center">
                           {resource.type === 'Compute' && <Server className="h-4 w-4 text-white/60" />}
                           {resource.type === 'Database' && <Layers className="h-4 w-4 text-white/60" />}
                           {resource.type === 'Cache' && <Zap className="h-4 w-4 text-white/60" />}
@@ -111,7 +111,7 @@ export default function ResourcesPage() {
                       <div className="text-xs text-white/40">{resource.region}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`px-2 py-1 inline-flex text-[10px] leading-4 font-semibold uppercase tracking-widest rounded-sm ${
+                      <span className={`px-2 py-1 inline-flex text-[10px] leading-4 font-semibold uppercase tracking-widest rounded-xl ${
                         resource.status === 'Running' ? 'bg-[#00FFC2]/10 text-[#00FFC2]' : 
                         resource.status === 'Stopped' ? 'bg-white/10 text-white/60' : 'bg-red-500/10 text-red-400'
                       }`}>
@@ -123,7 +123,7 @@ export default function ResourcesPage() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        <div className="w-16 bg-[#111] rounded-full h-1.5 mr-2">
+                        <div className="w-16 bg-white/5 backdrop-blur-xl shadow-2xl rounded-full h-1.5 mr-2">
                           <div 
                             className={`h-1.5 rounded-full ${resource.utilization > 70 ? 'bg-red-400' : resource.utilization < 20 ? 'bg-yellow-400' : 'bg-[#00FFC2]'}`} 
                             style={{ width: `${resource.utilization}%` }}

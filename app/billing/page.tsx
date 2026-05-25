@@ -59,12 +59,12 @@ export default function BillingPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {/* Current Plan Summary */}
-        <div className="bg-[#111] border border-[#00FFC2]/30 rounded-sm p-6 relative col-span-1 md:col-span-2 flex flex-col justify-center">
+        <div className="bg-white/5 backdrop-blur-xl shadow-2xl border border-[#00FFC2]/30 rounded-xl p-6 relative col-span-1 md:col-span-2 flex flex-col justify-center">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm uppercase tracking-[0.2em] font-medium text-[#00FFC2] flex items-center">
               <CreditCard className="h-4 w-4 mr-2" /> Current Plan: Pro
             </h3>
-            <span className="bg-[#00FFC2]/10 text-[#00FFC2] text-[10px] uppercase font-bold px-2 py-0.5 rounded-sm">Active</span>
+            <span className="bg-[#00FFC2]/10 text-[#00FFC2] text-[10px] uppercase font-bold px-2 py-0.5 rounded-xl">Active</span>
           </div>
           <div className="flex items-baseline mb-2">
             <span className="text-4xl font-light text-white">$249</span>
@@ -81,15 +81,15 @@ export default function BillingPage() {
         <h2 className="text-base font-semibold text-white">Invoice History</h2>
         <button
           onClick={exportToCSV}
-          className="inline-flex items-center px-3 py-1.5 border border-white/10 shadow-sm text-[10px] uppercase tracking-widest font-bold rounded-sm text-white bg-white/5 hover:bg-white/10 focus:outline-none transition-colors"
+          className="inline-flex items-center px-3 py-1.5 border border-white/10 shadow-sm text-[10px] uppercase tracking-widest font-bold rounded-xl text-white bg-white/5 hover:bg-white/10 focus:outline-none transition-colors"
         >
           <Download className="h-3 w-3 mr-2" />
           Export CSV
         </button>
       </div>
-      <div className="bg-[#090909] border border-white/5 rounded-sm overflow-hidden">
+      <div className="bg-black/30 backdrop-blur-2xl border-white/10 border border-white/10 rounded-xl overflow-hidden">
         <table className="min-w-full divide-y divide-white/5">
-          <thead className="bg-[#111]">
+          <thead className="bg-white/5 backdrop-blur-xl shadow-2xl">
             <tr>
               <th scope="col" className="px-6 py-4 text-left text-[10px] uppercase tracking-widest font-medium text-white/40">
                 Date
@@ -105,9 +105,9 @@ export default function BillingPage() {
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/5 bg-[#090909]">
+          <tbody className="divide-y divide-white/5 bg-black/30 backdrop-blur-2xl border-white/10">
             {invoices.map((invoice, index) => (
-              <tr key={invoice.id} className="hover:bg-[#111] transition-colors">
+              <tr key={invoice.id} className="hover:bg-white/5 backdrop-blur-xl shadow-2xl transition-colors">
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
                     <FileText className="h-4 w-4 text-white/20 mr-3 shrink-0" />
@@ -118,7 +118,7 @@ export default function BillingPage() {
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <span className={`inline-flex items-center px-2 py-0.5 rounded-sm text-[10px] uppercase tracking-widest font-medium ${
+                  <span className={`inline-flex items-center px-2 py-0.5 rounded-xl text-[10px] uppercase tracking-widest font-medium ${
                     invoice.plan === 'Pro' ? 'bg-[#00FFC2]/10 text-[#00FFC2]' : 'bg-white/5 text-white/60'
                   }`}>
                     {invoice.plan}

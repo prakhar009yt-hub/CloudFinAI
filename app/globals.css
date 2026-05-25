@@ -2,11 +2,38 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-background: #050505;
-  --color-foreground: #e0e0e0;
+  --color-background: #020202;
+  --color-foreground: #f0f0f0;
 }
 
 body {
+  background: radial-gradient(circle at top center, #1a1a24 0%, #050505 50%, #000000 100%);
+  background-attachment: fixed;
   background-color: var(--color-background);
   color: var(--color-foreground);
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 4px; border: 2px solid var(--color-background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #222 var(--color-background);
 }

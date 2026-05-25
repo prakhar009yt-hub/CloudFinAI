@@ -3,6 +3,7 @@ import { SpendTimelineChart } from '@/components/dashboard/SpendTimelineChart';
 import { ServicesBreakdownChart } from '@/components/dashboard/ServicesBreakdownChart';
 import { RecommendationFeed } from '@/components/dashboard/RecommendationFeed';
 import { CumulativeSavingsChart } from '@/components/dashboard/CumulativeSavingsChart';
+import { CurrentResourcesChart } from '@/components/dashboard/CurrentResourcesChart';
 
 export default function Dashboard() {
   return (
@@ -38,6 +39,10 @@ export default function Dashboard() {
           <div className="h-full">
             <CumulativeSavingsChart />
           </div>
+        </div>
+
+        <div className="mt-6 h-[400px]">
+          <CurrentResourcesChart />
         </div>
         
       </div>

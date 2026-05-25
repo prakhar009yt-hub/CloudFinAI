@@ -60,8 +60,8 @@ export function RecommendationFeed() {
   };
 
   return (
-    <div className="bg-[#090909] rounded-sm border border-white/5 overflow-hidden flex flex-col h-full">
-      <div className="p-6 border-b border-white/5 flex justify-between items-center bg-white/5">
+    <div className="bg-black/30 backdrop-blur-2xl border-white/10 rounded-xl border border-white/10 overflow-hidden flex flex-col h-full">
+      <div className="p-6 border-b border-white/10 flex justify-between items-center bg-white/5">
         <div>
           <h3 className="text-sm uppercase tracking-[0.2em] font-medium text-white flex items-center">
             <Sparkles className="w-5 h-5 text-[#00FFC2] mr-2" />
@@ -74,14 +74,14 @@ export function RecommendationFeed() {
         {!analyzed && !loading && (
           <button
             onClick={analyze}
-            className="inline-flex items-center px-4 py-2 border border-transparent text-[10px] uppercase tracking-widest font-bold rounded-sm text-black bg-white hover:bg-white/80 focus:outline-none transition-colors"
+            className="inline-flex items-center px-4 py-2 border border-transparent text-[10px] uppercase tracking-widest font-bold rounded-xl text-black bg-white hover:bg-white/80 focus:outline-none transition-colors"
           >
             Run Analysis
           </button>
         )}
       </div>
 
-      <div className="p-0 flex-1 overflow-y-auto bg-[#050505]">
+      <div className="p-0 flex-1 overflow-y-auto bg-transparent">
         {loading ? (
           <div className="flex flex-col items-center justify-center h-64 space-y-4">
             <div className="relative w-16 h-16">
@@ -92,7 +92,7 @@ export function RecommendationFeed() {
           </div>
         ) : !analyzed ? (
           <div className="flex flex-col items-center justify-center h-64 text-center px-4">
-            <div className="w-16 h-16 bg-[#111] text-[#00FFC2] rounded-sm flex items-center justify-center mb-4">
+            <div className="w-16 h-16 bg-white/5 backdrop-blur-xl shadow-2xl text-[#00FFC2] rounded-xl flex items-center justify-center mb-4">
               <BotIcon className="w-8 h-8" />
             </div>
             <h4 className="text-base font-medium text-white">Agent Idle</h4>
@@ -109,7 +109,7 @@ export function RecommendationFeed() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`p-6 transition-colors ${actioned.has(rec.id) ? 'bg-[#00FFC2]/5' : 'bg-[#0d0d0d] hover:bg-[#111]'}`}
+                  className={`p-6 transition-colors ${actioned.has(rec.id) ? 'bg-[#00FFC2]/5' : 'bg-[#0d0d0d] hover:bg-white/5 backdrop-blur-xl shadow-2xl'}`}
                 >
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-0.5">
@@ -128,7 +128,7 @@ export function RecommendationFeed() {
                         <h4 className={`text-sm font-semibold ${actioned.has(rec.id) ? 'text-white/30 line-through' : 'text-white/90'}`}>
                           {rec.title}
                         </h4>
-                        <span className={`inline-flex items-center px-1.5 py-0.5 rounded-sm text-[9px] uppercase tracking-widest font-medium ${
+                        <span className={`inline-flex items-center px-1.5 py-0.5 rounded-xl text-[9px] uppercase tracking-widest font-medium ${
                           rec.severity === 'High' ? 'bg-red-900/30 text-red-400' :
                           rec.severity === 'Medium' ? 'bg-orange-900/30 text-orange-400' :
                           'bg-blue-900/30 text-blue-400'
@@ -141,7 +141,7 @@ export function RecommendationFeed() {
                       </p>
                       
                       {!actioned.has(rec.id) && (
-                        <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-3">
+                        <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
                           <div className="flex text-[10px] font-mono">
                             <span className="font-semibold text-[#00FFC2] flex items-center">
                               <DollarSignIcon className="w-3 h-3 mr-0.5" />
@@ -154,7 +154,7 @@ export function RecommendationFeed() {
                           </div>
                           <button
                             onClick={() => handleApply(rec.id)}
-                            className="inline-flex items-center px-3 py-1 border border-white/10 shadow-sm text-[9px] uppercase tracking-widest font-medium rounded-sm text-[#00FFC2] bg-[#00FFC2]/10 hover:bg-[#00FFC2]/20 focus:outline-none transition-colors"
+                            className="inline-flex items-center px-3 py-1 border border-white/10 shadow-sm text-[9px] uppercase tracking-widest font-medium rounded-xl text-[#00FFC2] bg-[#00FFC2]/10 hover:bg-[#00FFC2]/20 focus:outline-none transition-colors"
                           >
                             <Zap className="mr-1.5 h-3 w-3 text-[#00FFC2]" />
                             Auto-Apply

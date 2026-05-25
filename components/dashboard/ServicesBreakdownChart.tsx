@@ -13,19 +13,19 @@ export function ServicesBreakdownChart() {
     : (infrastructureData as any).previousServicesBreakdown || infrastructureData.servicesBreakdown;
 
   return (
-    <div className="bg-[#090909] rounded-sm border border-white/5 p-6 h-full flex flex-col">
+    <div className="bg-black/30 backdrop-blur-2xl border-white/10 rounded-xl border border-white/10 p-6 h-full flex flex-col">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-sm uppercase tracking-[0.2em] font-medium text-white">Cost by Service</h3>
-        <div className="bg-[#111] border border-white/10 rounded-sm p-0.5 flex text-[10px] uppercase font-bold tracking-widest">
+        <div className="bg-white/5 backdrop-blur-xl shadow-2xl border border-white/10 rounded-xl p-0.5 flex text-[10px] uppercase font-bold tracking-widest">
           <button
             onClick={() => setPeriod('current')}
-            className={`px-2 py-1 rounded-sm transition-colors ${period === 'current' ? 'bg-[#00FFC2]/10 text-[#00FFC2]' : 'text-white/40 hover:text-white/80'}`}
+            className={`px-2 py-1 rounded-xl transition-colors ${period === 'current' ? 'bg-[#00FFC2]/10 text-[#00FFC2]' : 'text-white/40 hover:text-white/80'}`}
           >
             Current
           </button>
           <button
             onClick={() => setPeriod('previous')}
-            className={`px-2 py-1 rounded-sm transition-colors ${period === 'previous' ? 'bg-[#00FFC2]/10 text-[#00FFC2]' : 'text-white/40 hover:text-white/80'}`}
+            className={`px-2 py-1 rounded-xl transition-colors ${period === 'previous' ? 'bg-[#00FFC2]/10 text-[#00FFC2]' : 'text-white/40 hover:text-white/80'}`}
           >
             Previous
           </button>
